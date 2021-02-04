@@ -22,13 +22,13 @@
     <div class="main-message-text">時は金なり</div>
   </div>
 </div>
-<div class="main-form">
+<%= form_with model: [@room, @message], class: 'main-form', local: true do |f| %>
   <div class="main-form-form">
-    <input type="text" placeholder="type a message" class="main-form-text">
+    <%= f.text_field :content, class: 'main-form-text', placeholder: 'type a message' %>
     <label class="form-image">
       <span class="image-file">画像</span>
-      <input type="file" class="hidden">
+      <%= f.file_field :image, class: 'hidden' %>
     </label>
   </div>
-  <input type="submit" value="送信" class="main-form-submit">
-</div>
+  <%= f.submit "送信", class: 'main-form-submit' %>
+<% end %>
